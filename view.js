@@ -27,8 +27,8 @@ function getTable(model){
     ]
 }
 
-function inputForm(model){
-    const {Bill, Percentage} = model
+function inputForm(){
+    const {YoN, valueToConvert} = 0
     const message = "Left temperature is source?"
     const tmpMessage = "Temperature value to convert?"
     return inquirer.prompt([
@@ -36,14 +36,14 @@ function inputForm(model){
             name: "Left temperature is source?",
             type: "input",
             message: message,
-            default: Bill,
+            default: YoN,
             validate: function(value){
                 if (value === "y") {
                     return true
                 }else if(value === "n") {
                     return true
                 }else{
-                    return "enter y or n (yes or no)"
+                    return "Erase and enter y or n (yes or no)"
                 }
             }
         },
@@ -51,7 +51,7 @@ function inputForm(model){
             name: "Temperature value to convert?",
             type: "input",
             message: tmpMessage,
-            default: Percentage,
+            default: valueToConvert,
             validate: function(value){
                 if (isNaN(value)){
                     return "Erase and enter a number"
@@ -62,8 +62,8 @@ function inputForm(model){
         }
     ])
 }
-function listForm(model){
-    const {leftUnit, rightUnit} = model
+function listForm(){
+    const {firstUnit, secondUnit} = 0
     const firstMessage = 'From?'
     const secondMessage = "To?"
     const choices = ['Celcius', 'Fahrenheit', "Kelvin"]
@@ -72,14 +72,14 @@ function listForm(model){
             name: 'First Unit',
             type: 'list',
             message: firstMessage,
-            default: leftUnit,
+            default: firstUnit,
             choices: choices
         },
         {
             name: 'Second Unit',
             type: 'list',
             message: secondMessage,
-            default: rightUnit,
+            default: secondUnit,
             choices: choices
         }
     ])
