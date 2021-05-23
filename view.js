@@ -29,26 +29,28 @@ function getTable(model){
 
 function inputForm(model){
     const {Bill, Percentage} = model
-    const billMessage = "Bill Amount?"
-    const tipMessage = "Tip(%)?"
+    const message = "Left temperature is source?"
+    const tmpMessage = "Temperature value to convert?"
     return inquirer.prompt([
         {
-            name: "Bill",
+            name: "Left temperature is source?",
             type: "input",
-            billmessage: billMessage,
+            message: message,
             default: Bill,
             validate: function(value){
-                if (isNaN(value)){
-                    return "Erase and enter a number"
-                }else{
+                if (value === "y") {
                     return true
+                }else if(value === "n") {
+                    return true
+                }else{
+                    return "enter y or n (yes or no)"
                 }
             }
         },
         {
-            name: "Percentage",
+            name: "Temperature value to convert?",
             type: "input",
-            tipMessage: tipMessage,
+            tmpMessage: tmpMessage,
             default: Percentage,
             validate: function(value){
                 if (isNaN(value)){
