@@ -50,7 +50,7 @@ function inputForm(model){
         {
             name: "Temperature value to convert?",
             type: "input",
-            tmpMessage: tmpMessage,
+            message: tmpMessage,
             default: Percentage,
             validate: function(value){
                 if (isNaN(value)){
@@ -59,6 +59,28 @@ function inputForm(model){
                     return true
                 }
             }
+        }
+    ])
+}
+function listForm(model){
+    const {leftUnit, rightUnit} = model
+    const firstMessage = 'From?'
+    const secondMessage = "To?"
+    const choices = ['Celcius', 'Fahrenheit', "Kelvin"]
+    return inquirer.prompt([
+        {
+            name: 'First Unit',
+            type: 'list',
+            message: firstMessage,
+            default: leftUnit,
+            choices: choices
+        },
+        {
+            name: 'Second Unit',
+            type: 'list',
+            message: secondMessage,
+            default: rightUnit,
+            choices: choices
         }
     ])
 }
@@ -74,4 +96,5 @@ function view(model){
 module.exports = {
     view,
     inputForm,
+    listForm,
 }

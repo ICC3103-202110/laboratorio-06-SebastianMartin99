@@ -1,4 +1,4 @@
-const {inputForm} = require("./view")
+const {inputForm, listForm} = require("./view")
 const {printTable} = require("console-table-printer")
 
 
@@ -10,8 +10,9 @@ async function app(state, update, view){
         console.log(title)
         printTable(table)
         const {Bill, Percentage} = await inputForm(model)
+        const {leftUnit, rightUnit} = await listForm(model)
         console.log(Bill, Percentage)
-        const updatedModel = update(Bill, Percentage, model)
+        const updatedModel = update(Bill, Percentage, leftUnit, rightUnit, model)
         state = {
             ...state,
             model: updatedModel,
