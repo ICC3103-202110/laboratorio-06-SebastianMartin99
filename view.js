@@ -28,15 +28,15 @@ function getTable(model){
 }
 
 function inputForm(){
-    const {YoN, valueToConvert} = 0
+    const {yesOrNo, valueToConvert} = 0
     const message = "Left temperature is source?"
     const tmpMessage = "Temperature value to convert?"
     return inquirer.prompt([
         {
-            name: "Left temperature is source?",
+            name: "yesOrNo",
             type: "input",
             message: message,
-            default: YoN,
+            default: yesOrNo,
             validate: function(value){
                 if (value === "y") {
                     return true
@@ -48,7 +48,7 @@ function inputForm(){
             }
         },
         {
-            name: "Temperature value to convert?",
+            name: "valueToConvert",
             type: "input",
             message: tmpMessage,
             default: valueToConvert,
@@ -69,14 +69,14 @@ function listForm(){
     const choices = ['Celcius', 'Fahrenheit', "Kelvin"]
     return inquirer.prompt([
         {
-            name: 'First Unit',
+            name: 'firstUnit',
             type: 'list',
             message: firstMessage,
             default: firstUnit,
             choices: choices
         },
         {
-            name: 'Second Unit',
+            name: 'secondUnit',
             type: 'list',
             message: secondMessage,
             default: secondUnit,
