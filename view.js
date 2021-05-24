@@ -20,10 +20,10 @@ function getTable(model){
     const{rightValue} = model
     const{rightUnit} = model
     return[
-        {"leftValue": leftValue,
-        "leftUnit": leftUnit,
-        "rightValue": rightValue,
-        "rightUnit": rightUnit}    
+        {leftValue: leftValue,
+        leftUnit: leftUnit,
+        rightValue: rightValue,
+        rightUnit: rightUnit}    
     ]
 }
 
