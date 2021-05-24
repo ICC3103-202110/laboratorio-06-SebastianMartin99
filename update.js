@@ -21,7 +21,7 @@ function temperatureConverter(x, y, z){
 }
 
 function update(yesOrNo, valueToConvert, firstUnit, secondUnit, model){
-    if (yesOrNo === "y"){
+    if (yesOrNo === "yes"){
         const newLeftUnit = firstUnit
         const newRightUnit = secondUnit
         const newLeftValue = valueToConvert

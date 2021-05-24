@@ -3,7 +3,7 @@ const chalk = require("chalk")
 const inquirer = require("inquirer")
 
 function getTitle(){
-    return chalk.red(
+    return chalk.blue(
         figlet.textSync(
             "Unit Converter App" ,
             {
@@ -29,7 +29,7 @@ function getTable(model){
 
 function inputForm(){
     const {yesOrNo, valueToConvert} = 0
-    const message = "Left temperature is source?"
+    const message = "Left temperature is source?(yes/no)"
     const tmpMessage = "Temperature value to convert?"
     return inquirer.prompt([
         {
@@ -38,12 +38,12 @@ function inputForm(){
             message: message,
             default: yesOrNo,
             validate: function(value){
-                if (value === "y") {
+                if (value === "yes") {
                     return true
-                }else if(value === "n") {
+                }else if(value === "no") {
                     return true
                 }else{
-                    return "Erase and enter y or n (yes or no)"
+                    return "Please, erase and enter yes or no."
                 }
             }
         },
@@ -54,7 +54,7 @@ function inputForm(){
             default: valueToConvert,
             validate: function(value){
                 if (isNaN(value)){
-                    return "Erase and enter a number"
+                    return "Please, erase and enter a number."
                 }else{
                     return true
                 }
